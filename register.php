@@ -23,6 +23,7 @@
               spl_autoload_register( function( $clase){
                   
                   require_once "libs/$clase.php" ;
+                  
               }) ;
               
               
