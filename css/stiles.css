@@ -1,0 +1,120 @@
+* {
+    margin: 0 ;
+}
+
+a:hover {
+    text-decoration: none ;
+}
+
+#principal-container {
+     
+    display: flex ;
+    flex-direction: column ;
+    
+                     }
+
+#form-cont {
+    
+     margin: 100px 100px 
+    
+        }
+
+#title-cont {
+    
+    margin-top: 50px ;
+    
+}
+.col-centrar {
+    float: none ! important ;
+    margin: 0 auto ;
+    
+              }
+
+.border-form {
+    padding: 20px ;
+    background: #ffffff ;
+    box-shadow: 0px 0px 6px 1px rgba(2,2,2,0.12);
+        
+              }
+
+.border {
+      padding: 20px ;
+      background: #ffffff ;
+      box-shadow: 0px 0px 6px 1px rgba(2,2,2,0.12);
+    
+        }
+
+legend {
+    
+    border-bottom: 1px solid rgba(2,2,2,0.12) 
+       }
+
+/*###############################
+NAV-BAR
+##############################*/
+
+.bg-blue {
+    
+    background-color: #2929a3; 
+    
+    }
+#nav-main a {
+    
+    color: white ;
+}
+#nav-main a:hover {
+    
+    color: #0ff00f ;
+}
+
+.current-nav {
+    
+    color: #0ff00f !important;
+}
+
+
+.size-logo {
+    
+    width:12% ;
+    margin-right: 20px ;
+    
+}
+#nav-main {
+    display: inline-flex ;
+    flex-direction: row ;
+    
+}
+.link-nav {
+    
+    padding: 10px ;
+}
+.float-right {
+    
+    float: right ;
+}
+
+.icon-calendar {
+    font-size: 30px;
+}
+.icon-exit {
+    
+    font-size: 105x ;
+    color: white ;
+    
+    }
+.alig-cent {
+    
+    display: inline-flex ;
+    align-items: center ;
+    flex-direction: row ;
+    
+}
+/*##############################*/
+
+/*###############################
+CALENDARIO ESTILOS
+##############################*/
+#calendar {
+    
+    padding: 40px;
+}
