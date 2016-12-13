@@ -23,7 +23,7 @@ if ( (isset( $_SESSION['nombre'] ) && isset( $_SESSION['idUsuario'] ) ) || isset
 
 
 
-<body>
+<body class="bg-index">
    <div class="container-fluid" id="principal-container">
        <div class="row" id="title-cont">
            <div class="col-md-12 text-xs-center">
