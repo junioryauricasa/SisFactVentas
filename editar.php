@@ -153,9 +153,12 @@ $db->liberar();
                   </form>
          
      </div>
+    <?php elseif( isset( $_GET['confirmdelete'] ) ) :  ?>
               
               <div class="row">    
+              <div class="col-md-7 col-centrar border-form text-xs-center">
                   
+                  <h3>Estas seguro que deseas Eliminar a este usuario ?</h3>
                   <a class="btn btn-danger" href='<?php echo "editar.php?eliminar={$_GET['confirmdelete']}"; ?>'>Si</a>
                   <a class="btn btn-info" href="editar.php">NO</a>
               </div>
