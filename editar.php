@@ -93,7 +93,7 @@ $db->liberar();
        ?>
         
      <div class="col-md-6 col-centrar border-form">
-         <form action="" method="POST" role="form" class="border" enctype="multipart/form-data">
+         <form action="update.php" method="POST" role="form" class="border" enctype="multipart/form-data">
 	                 <legend class="text-xs-center">Actualizar registro</legend>
 	                 <div class="form-group">
 		               <label for="">Nombre</label>
@@ -140,6 +140,10 @@ $db->liberar();
 		              <input type="password" class="form-control" id="" placeholder="Pass.." name="contrasena2">
 	                 </div>
                      <div class="form-group">
+		               <label for="">Escoge una imagen de perfil</label>
+		              <input type="file" class="form-control" id="" placeholder="User.." name="foto">
+	                 </div>
+                     <div class="form-group">
 		               <input type="hidden" class="form-control" name="id" value="<?php echo $eID; ?>" >
 	                 </div>
                       
@@ -149,95 +153,20 @@ $db->liberar();
                   </form>
          
      </div>
-     
-     <?php elseif ( isset( $_POST['id'] ) ) : 
               
-         extract( $_POST, EEXTR_OVERWRITE ) ;
-              
-
-                  if ( $nombre && $email && $contrasena && $contrasena2 ) {
-                    
-                  $expreg = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
+              <div class="row">    
                   
-                  if ( preg_match( $expreg, $email ) ) {
-                      
-                      if( strlen( $contrasena ) > 6 ) {
-                          
-                          if( $contrasena == $contrasena2 ) { 
-                              
-                           $validarEmail = $db->validarDatos ('email', 'usuarios', $email);
-                              
-                              if ( $validarEmail == 0 ) {
-                                  
-                                    if ( validarfoto( $nombre )) {
-                                        
-                                        $fecha = time();
-                     
-                                          // echo " <img src='$rutaSubida' alt='' class='img-fluid'> " ;
-                                            if ( $db->preparar( " UPDATE usuarios SET
-                                                                   nombre = ? ,
-                                                                   apellido = ?, 
-                                                                   edad = ?,
-                                                                   telefono = ?,
-                                                                   ciudad = ?,
-                                                                   departamento = ?, 
-                                                                   direccion = ?,
-                                                                   email = ?,
-                                                                   contrasena 
-                                                                   WHERE IDusuario = ? " ) ){
-                                            
-                                            $db->prep()->bind_param( 'ssiissssi', $nombre, $apellido, $edad, $telefono, $ciudad, $departamento, $direccion, $email, $contrasena, $id ) ;
-                                            $db->ejecutar();
-                                            
-                                            $db-liberar() ;
-                                        }
-                                        
-                                    } else { 
-                                    
-                                    echo "$error";
-                                        
-                                    }
-                                  
-                              } else {
-                                  
-                                  echo '<div class="alert alert-warning alert-dismissible fade in" role="alert">
-                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                               <span aria-hidden="true">&times;</span>
-                                             </button>
-                                             <strong>Holy guacamole!</strong> Este correo ya esta registrado.
-                                           </div>';
-                                  
-                                 
-                              }
-                          
-                          
-                            } else {
-                              
-                              echo "las contraseñas no coinciden";
-                          }
-                          
-                      } else {
-                          
-                          echo "La Contraseña tiene que ser mayor a 7 caracteres";
-                      }
-                      
-                  } else {
-                      
-                      echo "Email erroneo, porfavor ingresa un Email valído";
-                  }
-                    
-              } else {
-                    
-                      echo " Porfavor ingresa los campos " ;
-                  }
-                            
-      
+                  <a class="btn btn-danger" href='<?php echo "editar.php?eliminar={$_GET['confirmdelete']}"; ?>'>Si</a>
+                  <a class="btn btn-info" href="editar.php">NO</a>
+              </div>
               
-              ?>
+              </div>
+              
+                 
      
      
      
- <?php  else : ?>
+ <?php  else :  ?>
                  <br><br><br>
                  
                  <table class="table table-bordered">
@@ -296,7 +225,7 @@ $db->liberar();
                         <td>".date('d/m/y', $dbfecha )."</td>
                         <td>
                         <a class=' btn btn-success 'href='editar.php?editar=$dbIDuser'><span class='icon-pencil'></span></a>
-                        <a class=' btn btn-danger 'href='editar.php?eliminar=$dbIDuser'><span class='icon-cross'></span></a>
+                        <a class=' btn btn-danger 'href='editar.php?confirmdelete=$dbIDuser'><span class='icon-cross'></span></a>
                         </td>
                       </tr>" ;
 

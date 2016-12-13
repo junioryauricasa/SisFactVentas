@@ -1,10 +1,13 @@
 <?php
 
-function validarfoto ( $nombre ) {
+function validarfoto ( $nombre,  $update = false ) {
+    
+   
     
     global $dirSubida ;
     global $rutaSubida ;
     global $error ;
+    
                  $dirSubida = "fotos/$nombre/" ;
              
                   $foto = $_FILES['foto'];
@@ -14,7 +17,9 @@ function validarfoto ( $nombre ) {
                   $extArchivo = preg_replace ('/image\//','',$foto['type']) ;
                   
                   if ( $extArchivo == "jpeg" || $extArchivo == 'png') {
+                      
                        if ( !file_exists( $dirSubida)) {
+                           
                       mkdir( $dirSubida, 0777 );
                                                        }
                       

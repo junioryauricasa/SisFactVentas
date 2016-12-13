@@ -67,14 +67,7 @@ if ($_POST) {
         }
     
 
-
 ?>
-
-
-
-
-
-
 
 <body>
    <div class="container-fluid" id="principal-container">
