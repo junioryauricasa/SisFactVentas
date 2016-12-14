@@ -41,7 +41,9 @@ extract( $_POST, EXTR_OVERWRITE ) ;
 
               if ( $validarEmail == 0 ) {
 
-                    if ( validarfoto( $nombre )) {
+                    if ( updateimg ( $actname, $id ) ) {
+                        
+                         echo "$dirdelete" ;
 
                         $fecha = time();
                           // echo " <img src='$rutaSubida' alt='' class='img-fluid'> " ;
@@ -58,7 +60,7 @@ extract( $_POST, EXTR_OVERWRITE ) ;
                                                    imagen = ?
                                                    WHERE IDusuario = ? " ) ){
 
-                            $db->prep()->bind_param( 'ssiissssisi', $nombre, $apellido, $edad, $telefono, $ciudad, $departamento, $direccion, $email, $contrasena, $rutaSubida, $id ) ;
+                            $db->prep()->bind_param( 'ssiissssisi', $nombre, $apellido, $edad, $telefono, $ciudad, $departamento, $direccion, $email, $contrasena, $newrutaSubida, $id ) ;
                             $db->ejecutar();
                             $db->liberar() ;
                             
@@ -75,7 +77,7 @@ extract( $_POST, EXTR_OVERWRITE ) ;
               } else {
 
                   echo "Correo ya registrado $email";
-                  echo "depurando $rutaSubida" ;
+                  echo "depurando $newrutaSubida" ;
 
 
               }

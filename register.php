@@ -54,56 +54,71 @@
                               
                               if ( $validarEmail == 0 ) {
                                   
-                                    if ( validarfoto( $nombre )) {
-                                        
                                         $fecha = time();
                      
                                           // echo " <img src='$rutaSubida' alt='' class='img-fluid'> " ;
-                                        if ( $db->preparar( "INSERT INTO usuarios VALUES ( NULL, '$nombre','$apellido','$email','$contrasena',$dni,$telefono,'$direccion', $edad, '$ciudad', '$departamento','$rutaSubida','$fecha')")){
+                                        
+                                        if ( $db->preparar( "INSERT INTO usuarios VALUES ( NULL, '$nombre','$apellido','$email','$contrasena',$dni,$telefono,'$direccion', $edad, '$ciudad', '$departamento','preparando','$fecha' )") ) {
                                             
                                             $db->ejecutar();
+                                            $db->liberar() ;
+                                           
                                             
-                                                                    
-                                            $ok = true ;    
-                                        }
-                                        
-                                    } else { 
-                                    
-                                    echo "$error";
-                                        
-                                    }
+                                            $db->preparar( "SELECT IDusuario, nombre FROM usuarios
+                                                   WHERE email = ? " ) ;
+                                            $db->prep()->bind_param( 's', $email) ;
+                                            $db->ejecutar();
+                                            $db->prep()->bind_result($imgID, $imgname);
+                                            $db->resultado();
+                                            $db->liberar() ;
+
+                                            if ( validarfoto( $imgID, $imgname )) {
+                                               
+                                                $db->preparar( "UPDATE usuarios SET imagen = ? WHERE IDusuario = ?");
+                                                $db->prep()->bind_param( 'si',$rutaSubida, $imgID ) ;
+                                                $db->ejecutar();
+                                                $db->liberar() ;
+                                                $ok = true ;
+                                                 echo "imagen subida con ID como nombre";
+                                                }
+
+                                            } else { 
+
+                                            echo "$error";
+
+                                            }
                                   
-                              } else {
-                                  
-                                  echo '<div class="alert alert-warning alert-dismissible fade in" role="alert">
-                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                               <span aria-hidden="true">&times;</span>
-                                             </button>
-                                             <strong>Holy guacamole!</strong> Este correo ya esta registrado.
-                                           </div>';
-                                  
-                                 
-                              }
-                          
-                          
-                            } else {
-                              
-                              echo "las contraseñas no coinciden";
-                          }
-                          
-                      } else {
-                          
-                          echo "La Contraseña tiene que ser mayor a 7 caracteres";
-                      }
-                      
-                  } else {
-                      
-                      echo "Email erroneo, porfavor ingresa un Email valído";
-                  }
-                    
-              };
-                  }
-              
+                                              } else {
+
+                                                  echo '<div class="alert alert-warning alert-dismissible fade in" role="alert">
+                                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                               <span aria-hidden="true">&times;</span>
+                                                             </button>
+                                                             <strong>Holy guacamole!</strong> Este correo ya esta registrado.
+                                                           </div>';
+
+
+                                              }
+
+
+                                            } else {
+
+                                              echo "las contraseñas no coinciden";
+                                          }
+
+                                      } else {
+
+                                          echo "La Contraseña tiene que ser mayor a 7 caracteres";
+                                      }
+
+                                  } else {
+
+                                      echo "Email erroneo, porfavor ingresa un Email valído";
+                                  }
+
+                              };
+                                  }
+
 
              /* 
               $db->preparar ( "SELECT nombre, apellido, ciudad FROM usuarios");

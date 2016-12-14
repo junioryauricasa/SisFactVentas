@@ -95,6 +95,7 @@ $db->liberar();
      <div class="col-md-6 col-centrar border-form">
          <form action="update.php" method="POST" role="form" class="border" enctype="multipart/form-data">
 	                 <legend class="text-xs-center">Actualizar registro</legend>
+	                 
 	                 <div class="form-group">
 		               <label for="">Nombre</label>
 		              <input type="text" class="form-control" id="" name="nombre" placeholder="<?php echo "$enombre" ;?>">
@@ -146,6 +147,9 @@ $db->liberar();
                      <div class="form-group">
 		               <input type="hidden" class="form-control" name="id" value="<?php echo $eID; ?>" >
 	                 </div>
+                      <div class="form-group">
+		               <input type="hidden" class="form-control" name="actname" value="<?php echo "$enombre"; ?>" >
+	                 </div>
                       
                        <button type="submit" class="btn btn-primary">Actualizar</button>
                       
@@ -194,9 +198,7 @@ $db->liberar();
               </div>
               
               </div>            
-     
-     
-     
+
  <?php  else :  ?>
                  <br><br><br>
                  
