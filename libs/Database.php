@@ -65,7 +65,10 @@ class Database {
         return $this->prep->fetch();
         
     }
-    
+    public function filasAfectadas () {
+        
+        return $this->prep->affected_rows ;
+    }
     
     public function cambiarDatabase( $db ) {
         

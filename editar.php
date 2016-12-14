@@ -165,7 +165,35 @@ $db->liberar();
               
               </div>
               
-                 
+    <?php elseif( isset( $_GET['eliminar'] ) ) :  ?>
+              
+              <div class="row">    
+              <div class="col-md-7 col-centrar border-form text-xs-center">
+                  
+                 <?php
+                  
+                  
+                  $eliminar = $_GET['eliminar'] ;
+                  
+                  $db->preparar ("DELETE FROM usuarios
+                  WHERE IDusuario = ?
+                                        ");
+                  $db->prep()->bind_param( 'i', $eliminar );
+                  $db->ejecutar();      
+                  $db->resultado();
+                  $db->liberar();
+                  
+                  if ( $db->filasAfectadas() > 0 ) {
+                      
+                      echo "Eliminacion correcta <br> seras redireccionado" ;
+                          echo $db->filasAfectadas();
+                          header( "Refresh:5; url=editar.php");
+                  }
+                  
+                 ?>
+              </div>
+              
+              </div>            
      
      
      
