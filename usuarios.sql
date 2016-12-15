@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-12-2016 a las 00:15:22
+-- Tiempo de generación: 16-12-2016 a las 00:20:05
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -50,7 +50,9 @@ INSERT INTO `usuarios` (`IDusuario`, `nombre`, `apellido`, `email`, `contrasena`
 (0, 'José', 'Rodriguez', 'testinh@test.pe', 123456, 49494949, 5333521, 'Av.Industrial 7118', 23, 'San Martin ', 'Lima', 'fotos/jose/profile.jpg', 1481402025),
 (2, 'Marciano', 'Zubilete', 'marciano.zubilete5@gmail.com', 123456789, 929292, 5555, 'Av. Los ceresos', 66, 'Ancash', 'Ancash', 'fotos/Marciano/profile.jpg', 1481402080),
 (5, 'carolina', 'Chavista', 'chavista@celerix.com', 0, 98289282, 66666, 'Av.nosequexD', 23, 'Lima', 'Lima', 'fotos/carolina/profile.jpg', 1481402093),
-(6, 'jose', 'Rodriguez', 'jose@gmail.com', 123456789, 66666666, 987526657, 'Av.Industrial 7645', 23, 'Lima', 'Lima', 'fotos/jose/profile.jpg', 1481402110);
+(6, 'Jose2', 'Rodriguez2', 'jose2@gmail.com', 123456789, 66666666, 29292929, 'Av.Industrial 7645', 29, 'Lima', 'Lima', 'fotos/6//profile.jpg', 1481402110),
+(13, 'frijolera', 'probando', 'gordota3@gmail.com', 123456789, 9292929, 4294967295, 'Av.Industrial 7645', 29, 'Huraza', 'Huaraz', 'fotos/13/frijolera/profile.jpg', 1481742801),
+(14, 'marcelo', 'Camote', 'peru@gmail.com', 123456789, 121212121, 2920101, 'Peru', 21, 'Peru', 'Peru', 'fotos/14/marcelo/profile.jpg', 1481843874);
 
 --
 -- Índices para tablas volcadas
@@ -71,7 +73,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `IDusuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `IDusuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
