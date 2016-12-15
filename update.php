@@ -21,7 +21,9 @@ if (!$_SESSION['idUsuario'] &&  !$_SESSION['nombre'] ){
 
 extract( $_POST, EXTR_OVERWRITE ) ;
 
+
 ?>
+
 
 <?php if ( isset( $id ) ) {
     
@@ -41,7 +43,7 @@ extract( $_POST, EXTR_OVERWRITE ) ;
 
               if ( $validarEmail == 0 ) {
 
-                    if ( updateimg ( $actname, $id ) ) {
+                    if ( updateimg ( $actname, $id, $nombre ) ) {
                         
                          echo "$dirdelete" ;
 

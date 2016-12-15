@@ -1,6 +1,5 @@
 <?php
 
-/*
 function validarfoto ( $iD, $nombre ) {
     
        
@@ -41,26 +40,28 @@ function validarfoto ( $iD, $nombre ) {
     return $error ;
     
           }
-*/
 
 
 
     
-function updateimg( $actName, $idUpdate ) {
+function updateimg( $actName, $idUpdate, $newname ) {
     
     global $dirdelete;
     global $newrutaSubida ;
     global $error ;
+    global  $dirdelete2 ;
     
     $dirdelete = "fotos/$idUpdate/$actName" ;
     
-    if ( !file_exists( "backup/$idUpdate/$actName" ) ) {
+    if ( !is_dir( "backup/$idUpdate/$actName" ) ) {
                            
            mkdir( "backup/$idUpdate/$actName" , 0777, true );
                            
                              }
   
-    $gestor = opendir(  "$dirdelete/" );
+    if ( is_dir( "backup/$idUpdate/$actName" ) ) {
+        
+        $gestor = opendir(  "$dirdelete/" );
     
     while ( ( $archivo = readdir( $gestor ) ) != false ){
         
@@ -71,10 +72,13 @@ function updateimg( $actName, $idUpdate ) {
     }
     
     closedir( $gestor );
-   
-    unlink( $dirdelete );
+    rmdir ($dirdelete );
+
+    } else {
         
-                  $dirSubida = "fotos/$idUpdate/$nombre/" ;
+        echo "el directorio $dirdelete no existe" ;
+    }
+$dirSubida = "fotos/$idUpdate/$newname/" ;
                   $foto = $_FILES['foto'];
                   $nombrefoto = $foto['name'];
                   $nombretmp = $foto['tmp_name'];
@@ -104,7 +108,9 @@ function updateimg( $actName, $idUpdate ) {
                     }
     
     return $error ;
-    
-        
-    
+ 
 }
+
+
+
+
