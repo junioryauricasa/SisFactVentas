@@ -222,7 +222,17 @@ $db->liberar();
                          
                          <?php 
     
-                            $db->preparar ("SELECT
+                        $db->preparar (" SELECT COUNT(IDusuario) FROM usuarios");
+                        $db->ejecutar();
+                        $db->prep()->bind_result( $contador );
+                        $db->resultado(); 
+                        $db->liberar();
+                        $porPagina = 5 ;
+                        $paginas = ceil( $contador/$porPagina );
+                        $pagina = ( isset( $_GET['pagina']) ) ? (int)$_GET['pagina'] : 1 ;
+                        $iniciar = ( $pagina-1 ) * $porPagina ;
+                         
+                        $db->preparar ("SELECT
                                             IDusuario, 
                                             CONCAT(nombre, ' ', apellido) AS nombrecompleto,
                                             email,
@@ -233,15 +243,15 @@ $db->liberar();
                                             ciudad,
                                             departamento, 
                                             fecha
-                                        FROM usuarios
-                                        ORDER BY fecha 
-                                        ");
+                                            FROM usuarios
+                                            ORDER BY fecha 
+                                            LIMIT $iniciar, $porPagina ");
                         $db->ejecutar();
                         $db->prep()->bind_result( $dbIDuser, $dbnombrecompleto, $dbemail, $dbdni,  $dbtelefono, $dbdireccion, $dbedad, $dbciudad, $dbdepartamento, $dbfecha );
                         $db->resultado();
                         
 
-                        $conteo = 0 ;
+                        $conteo = $iniciar ;
                           while ( $db->resultado() ) {
                         $nombreC = ucwords($dbnombrecompleto);
                         $conteo ++;
@@ -257,21 +267,71 @@ $db->liberar();
                         <td>$dbdepartamento</td>
                         <td>".date('d/m/y', $dbfecha )."</td>
                         <td>
-                        <a class=' btn btn-success 'href='editar.php?editar=$dbIDuser'><span class='icon-pencil'></span></a>
-                        <a class=' btn btn-danger 'href='editar.php?confirmdelete=$dbIDuser'><span class='icon-cross'></span></a>
+                        <a class=' btn btn-success botonsito 'href='editar.php?editar=$dbIDuser'><span class='icon-pencil'></span></a>
+                        <a class=' btn btn-danger botonsito 'href='editar.php?confirmdelete=$dbIDuser'><span class='icon-cross'></span></a>
                         </td>
                       </tr>" ;
+                              
 
                      };
             
-                $db->liberar();
+                        $db->liberar();
                          ?>
                          
                      </tbody>
                      
                      
                  </table>
+                 
+                 <?php 
+                  
+              $anterior = ($pagina-1);
+              $siguiente = ($pagina+1);
+                   ?>
              </div>
+                 <nav aria-label="Page navigation">
+                  <ul class="pagination">
+                   
+                    <?php if ( !($pagina <=1) ) : ?>
+                         
+                         <li class="page-item">
+                          <a class="page-link" href='<?php echo "?pagina=$anterior" ?>' aria-label="anterior">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                        </li>
+                    
+                    <?php endif; ?>
+                    
+                    <?php 
+                      
+                    if ( $paginas >= 1) {
+                        
+                      for( $x = 1; $x<=$paginas; $x++ ) {
+                                
+                            echo ( $x == $pagina ) ? "<li class='page-item active'><a class='page-link' href='?pagina=$x'>$x</a></li>" : 
+                          
+                                                     "<li class='page-item'><a class='page-link' href='?pagina=$x'>$x</a></li>" ;
+                          
+                      }
+                        
+                    }
+                      
+                          
+                     
+                      ?>
+                   <?php if ( !($pagina >= $paginas) ) :?>
+                    
+                     <li class="page-item">
+                      <a class="page-link" href='<?php echo "?pagina=$siguiente" ?>' aria-label="siguiente">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </li>
+                    
+                   <?php endif; ?>
+                  </ul>
+                </nav>
        </div>
    </div>
    

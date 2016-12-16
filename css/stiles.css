@@ -85,6 +85,18 @@ NAV-BAR
     margin-right: 20px ;
     
 }
+
+#cont-logo img {
+    
+    padding: 10px !important;
+    
+}
+#cont-nav {
+    
+    display: inline-flex;
+    flex-direction: row ;
+    align-items: center ;
+}
 #nav-main {
     display: inline-flex ;
     flex-direction: row ;
@@ -114,6 +126,17 @@ NAV-BAR
     align-items: center ;
     flex-direction: row ;
     
+}
+.alig-cent p {
+    
+    color: white ;
+}
+.botonsito {
+    
+    width: 27px !important;
+    height: 26px !important;
+    font-size: 10px !important;
+    padding: 5px !important;
 }
 /*##############################*/
 
