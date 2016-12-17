@@ -49,12 +49,8 @@ $db->liberar();
 <?php require 'inc/head.inc' ; ?>
 
 
-<body>
+<body class="bg-principal">
    <div class="container-fluid" id="principal-container">
-    
-     
-    
-     
       <div class="row">
           <div class="col-md-12">
             <div class="pull-xs-right" id="calendar">
@@ -62,18 +58,10 @@ $db->liberar();
             </div>
           </div>
       </div>
-       <div class="row" id="title-cont">
-           <div class="col-md-12 text-xs-center">
-               <h3>Celerix 1.0</h3>
-           </div>
-       </div>
        <div class="row" id="form-cont">
           <div class="col-md-12 col-centrar border-form">
-
-
-<h2 class="text-xs-center"> Bienvenido Root <?php echo ucwords($unombre)?> </h2>
-          <h4>Edita o elimina usuarios:</h4>
-          <br>
+            <h4><span class="icon-user"></span> Administra los clientes:</h4>
+          
            <!--<img src="<?php// echo $_SESSION['imagen'] ; ?>" alt="profile" class="img-fluid">-->
              
               <?php if ( isset( $_GET['editar'] ) ) : ?>
@@ -200,10 +188,10 @@ $db->liberar();
               </div>            
 
  <?php  else :  ?>
-                 <br><br><br>
+                 <br>
                  
-                 <table class="table table-bordered">
-                     <thead>
+                 <table class="table">
+                     <thead class="thead-inverse">
                          <tr>
                              <th> # </th>
                              <th> Nombre </th>
@@ -288,50 +276,53 @@ $db->liberar();
               $anterior = ($pagina-1);
               $siguiente = ($pagina+1);
                    ?>
+                   <div class="hori-cent">
+                        <nav aria-label="Page navigation">
+                          <ul class="pagination">
+
+                            <?php if ( !($pagina <=1) ) : ?>
+
+                                 <li class="page-item">
+                                  <a class="page-link" href='<?php echo "?pagina=$anterior" ?>' aria-label="anterior">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                  </a>
+                                </li>
+
+                            <?php endif; ?>
+
+                                    <?php 
+
+                                    if ( $paginas >= 1) {
+
+                                      for( $x = 1; $x<=$paginas; $x++ ) {
+
+                                            echo ( $x == $pagina ) ? "<li class='page-item active'><a class='page-link' href='?pagina=$x'>$x</a></li>" : 
+
+                                                                     "<li class='page-item'><a class='page-link' href='?pagina=$x'>$x</a></li>" ;
+
+                                      }
+
+                                    }
+
+
+
+                                      ?>
+                           <?php if ( !($pagina >= $paginas) ) :?>
+
+                             <li class="page-item">
+                              <a class="page-link" href='<?php echo "?pagina=$siguiente" ?>' aria-label="siguiente">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </li>
+
+                           <?php endif; ?>
+                          </ul>
+                        </nav>
+                   </div>
              </div>
-                 <nav aria-label="Page navigation">
-                  <ul class="pagination">
-                   
-                    <?php if ( !($pagina <=1) ) : ?>
-                         
-                         <li class="page-item">
-                          <a class="page-link" href='<?php echo "?pagina=$anterior" ?>' aria-label="anterior">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                          </a>
-                        </li>
-                    
-                    <?php endif; ?>
-                    
-                    <?php 
-                      
-                    if ( $paginas >= 1) {
-                        
-                      for( $x = 1; $x<=$paginas; $x++ ) {
-                                
-                            echo ( $x == $pagina ) ? "<li class='page-item active'><a class='page-link' href='?pagina=$x'>$x</a></li>" : 
-                          
-                                                     "<li class='page-item'><a class='page-link' href='?pagina=$x'>$x</a></li>" ;
-                          
-                      }
-                        
-                    }
-                      
-                          
-                     
-                      ?>
-                   <?php if ( !($pagina >= $paginas) ) :?>
-                    
-                     <li class="page-item">
-                      <a class="page-link" href='<?php echo "?pagina=$siguiente" ?>' aria-label="siguiente">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                      </a>
-                    </li>
-                    
-                   <?php endif; ?>
-                  </ul>
-                </nav>
+                
        </div>
    </div>
    

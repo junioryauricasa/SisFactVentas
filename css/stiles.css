@@ -5,7 +5,9 @@
 a:hover {
     text-decoration: none ;
 }
-
+.bg-principal {
+    background-color: rgba(212, 216, 219, 0.33) ;
+}
 #principal-container {
      
     display: flex ;
@@ -15,7 +17,7 @@ a:hover {
 
 #form-cont {
     
-     margin: 100px 100px 
+     margin: 20px 100px 
     
         }
 
@@ -54,11 +56,17 @@ legend {
     background: url(../img/bg-index.jpg) center center no-repeat ;
     background-size: cover ;
 }
-
+.hori-cent {
+    margin: 0 auto ;
+}
 /*###############################
 NAV-BAR
 ##############################*/
-
+#nav-bar-top {
+    width: 100%;
+    height: 68px;
+    
+}
 .bg-blue {
     
     background-color: #2929a3; 
@@ -73,6 +81,28 @@ NAV-BAR
     color: #0ff00f ;
 }
 
+#nav-main {
+    
+    display: inline-flex ;
+    flex-direction: row ;
+    align-items: center;
+    font-size: 14px;
+    
+    
+}
+
+@media ( max-width: 1280px ){
+    
+    #nav-main {
+    
+    display: inline-flex ;
+    flex-direction: row ;
+    align-items: center;
+    font-size: 14px;
+    
+    
+}
+}
 .current-nav {
     
     color: #0ff00f !important;
@@ -86,9 +116,13 @@ NAV-BAR
     
 }
 
+.height-nav {
+    height: 68px
+}
 #cont-logo img {
     
     padding: 10px !important;
+    
     
 }
 #cont-nav {
@@ -97,23 +131,21 @@ NAV-BAR
     flex-direction: row ;
     align-items: center ;
 }
-#nav-main {
-    display: inline-flex ;
-    flex-direction: row ;
-    
-}
 .link-nav {
+        
+    padding: 10px
+}
+
+.link-logout {
     
-    padding: 10px ;
+    font-size: 14px
 }
 .float-right {
     
     float: right ;
 }
 
-.icon-calendar {
-    font-size: 30px;
-}
+
 .icon-exit {
     
     font-size: 105x ;
@@ -122,14 +154,63 @@ NAV-BAR
     }
 .alig-cent {
     
-    display: inline-flex ;
+    display: flex;
+    flex-direction: column;
     align-items: center ;
+    
+        
+}
+
+.fuente-name {
+ 
+    font-size: 15px;
+}
+.aling-c {
+    display: flex ;
     flex-direction: row ;
+    align-items: center ;
+}
+/*#####################
+TAMAÑO DE FUENTES EN SM
+#####################*/
+
+@media ( max-width: 1070px){
+    
+    .fuente-name {
+ 
+    font-size: 12px;
+}
+    .link-logout {
+    
+    font-size: 11px
+}
     
 }
-.alig-cent p {
+
+
+
+.no-padd-aside {
+    
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.padd-left {
+    padding-left: 50px;
+}
+
+.img-round img{
+    
+    border-radius: 5px ;
+   
+}
+.alig-cent spam {
     
     color: white ;
+}
+
+.padd-bottom {
+    
+    padding-bottom: 25px;
 }
 .botonsito {
     
@@ -138,6 +219,14 @@ NAV-BAR
     font-size: 10px !important;
     padding: 5px !important;
 }
+#nav-profile {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 /*##############################*/
 
 /*###############################
@@ -145,5 +234,9 @@ CALENDARIO ESTILOS
 ##############################*/
 #calendar {
     
-    padding: 40px;
+    padding: 5px;
+}
+.icon-calendar {
+    
+    font-size: 20px;
 }
