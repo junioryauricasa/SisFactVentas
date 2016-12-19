@@ -15,12 +15,6 @@ a:hover {
     
                      }
 
-#form-cont {
-    
-     margin: 20px 100px 
-    
-        }
-
 #title-cont {
     
     margin-top: 50px ;
@@ -226,6 +220,10 @@ TAMAÑO DE FUENTES EN SM
     align-items: center;
 }
 
+#searcher {
+    
+    margin-bottom: 10px !important ;
+}
 
 /*##############################*/
 

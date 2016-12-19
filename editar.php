@@ -58,17 +58,31 @@ $db->liberar();
             </div>
           </div>
       </div>
-       <div class="row" id="form-cont">
-          <div class="col-md-12 col-centrar border-form">
-            <h4><span class="icon-user"></span> Administra los clientes:</h4>
-          
+      </div>
+      <div class="container">
+       <div class="row">
+
+     <div class="col-md-12 col-centrar border-form">
+      <div class="row ">
+
+       <div class="col-md-7">
+            <h4><span class="icon-user"></span> Administra los usuarios:</h4>
+       </div>
+       <div class="col-md-5">
+           <form class="form-inline pull-xs-right" id="busqueda" method="GET">
+            <input name="busqueda" class="form-control" type="text" placeholder="Ingrese su busqueda...">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+       </div>
+    </div>
+                
            <!--<img src="<?php// echo $_SESSION['imagen'] ; ?>" alt="profile" class="img-fluid">-->
              
               <?php if ( isset( $_GET['editar'] ) ) : ?>
       
       <?php 
        
-       $eID = $_GET['editar'] ;  
+        $eID = $_GET['editar'] ;  
        
         $db->preparar( "SELECT nombre, apellido, email, telefono, direccion, edad FROM usuarios WHERE IDusuario = ? ") ;
         $db->prep()->bind_param( 'i',$eID );
@@ -80,8 +94,9 @@ $db->liberar();
        
        ?>
         
-     <div class="col-md-6 col-centrar border-form">
-         <form action="update.php" method="POST" role="form" class="border" enctype="multipart/form-data">
+     
+         
+             <form action="update.php" method="POST" role="form" enctype="multipart/form-data">
 	                 <legend class="text-xs-center">Actualizar registro</legend>
 	                 
 	                 <div class="form-group">
@@ -143,8 +158,10 @@ $db->liberar();
                       
                   
                   </form>
+         </div>
+         </div>
          
-     </div>
+     
     <?php elseif( isset( $_GET['confirmdelete'] ) ) :  ?>
               
               <div class="row">    
@@ -210,6 +227,79 @@ $db->liberar();
                          
                          <?php 
     
+                        if  ( isset($_GET['busqueda']) ) {
+                            
+                            if( empty( $_GET['busqueda']) ) {
+                                
+                                 echo "porfavor escribe algo en el cuadro de busqueda" ;
+                            
+                            }
+                            
+                          $consulta = "SELECT
+                                            IDusuario, 
+                                            CONCAT(nombre, ' ', apellido) AS nombrecompleto,
+                                            email,
+                                            dni,
+                                            telefono, 
+                                            direccion, 
+                                            edad,
+                                            ciudad,
+                                            departamento, 
+                                            fecha
+                                            FROM usuarios
+                                            WHERE nombre LIKE" ;  
+                            
+                            $busqueda = explode( " ", $_GET['busqueda'] );
+                        
+                            for ( $i = 0 ; $i < count($busqueda); $i++ ){ 
+                                
+                                if ($busqueda[$i] != '') {
+                                    if ( $i != 0 ) {
+                                        
+                                        $consulta .= ' OR nombre LIKE ' ;
+                                    }
+                                 
+                                    $consulta .= " '%{$busqueda[$i]}%' " ;
+                                    
+                                }
+                            
+                            
+                            }
+                            
+                            $consultabusqueda = " SELECT COUNT(IDusuario) FROM usuarios WHERE nombre LIKE" ;
+                            
+                            
+                            for ( $i = 0 ; $i < count($busqueda); $i++ ){ 
+                                
+                                if ($busqueda[$i] != '') {
+                                    if ( $i != 0 ) {
+                                        
+                                        $consultabusqueda .= ' OR nombre LIKE ' ;
+                                    }
+                                 
+                                    $consultabusqueda .= " '%{$busqueda[$i]}%' " ;
+                                    
+                                }
+                            
+                            
+                            }
+                            
+                        $db->preparar ( $consultabusqueda );
+                        $db->ejecutar();
+                        $db->prep()->bind_result( $contador );
+                        $db->resultado();
+                        $db->liberar() ;
+                            
+                        $porPagina = 3 ;
+                        $paginas = ceil( $contador/$porPagina );
+                        $pagina = ( isset( $_GET['pagina']) ) ? (int)$_GET['pagina'] : 1 ;
+                        $iniciar = ( $pagina-1 ) * $porPagina  ;   
+                        
+                        $consulta .= " ORDER BY fecha LIMIT $iniciar, $porPagina" ;
+                            
+                        } else { 
+                                
+                                
                         $db->preparar (" SELECT COUNT(IDusuario) FROM usuarios");
                         $db->ejecutar();
                         $db->prep()->bind_result( $contador );
@@ -220,7 +310,7 @@ $db->liberar();
                         $pagina = ( isset( $_GET['pagina']) ) ? (int)$_GET['pagina'] : 1 ;
                         $iniciar = ( $pagina-1 ) * $porPagina ;
                          
-                        $db->preparar ("SELECT
+                        $consulta = "SELECT
                                             IDusuario, 
                                             CONCAT(nombre, ' ', apellido) AS nombrecompleto,
                                             email,
@@ -233,7 +323,12 @@ $db->liberar();
                                             fecha
                                             FROM usuarios
                                             ORDER BY fecha 
-                                            LIMIT $iniciar, $porPagina ");
+                                            LIMIT $iniciar, $porPagina " ;
+                            
+                        }
+                         
+                       
+                        $db->preparar ( $consulta );
                         $db->ejecutar();
                         $db->prep()->bind_result( $dbIDuser, $dbnombrecompleto, $dbemail, $dbdni,  $dbtelefono, $dbdireccion, $dbedad, $dbciudad, $dbdepartamento, $dbfecha );
                         $db->resultado();
@@ -243,6 +338,7 @@ $db->liberar();
                           while ( $db->resultado() ) {
                         $nombreC = ucwords($dbnombrecompleto);
                         $conteo ++;
+              
                   echo "<tr>
                         <td>$conteo</td>
                         <td>$nombreC</td>
@@ -321,10 +417,10 @@ $db->liberar();
                           </ul>
                         </nav>
                    </div>
-             </div>
-                
+
+      
        </div>
-   </div>
+   
    
    <?php endif; ?>
     <?php require 'inc/footer.inc' ; ?>

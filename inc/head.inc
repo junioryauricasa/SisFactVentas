@@ -28,10 +28,10 @@ require 'libs/validadorimg.php';
             <div class="col-xl-6 col-sm-6 col-md-7 col-lg-7 no-padd-aside">
                      <div class="height-nav" id="nav-main">
                      <a href="admin.php" class="<?php if($_SERVER['SCRIPT_NAME'] == '/portalweb/admin.php') { echo "current-nav" ;} else { echo "no" ;} ?> link-nav">Panel</a>
-                     <a href="editar.php" class="<?php if($_SERVER['SCRIPT_NAME'] == '/portalweb/editar.php') : echo "current-nav" ; endif; ?> link-nav">Clientes</a>
+                     <a href="" class="link-nav">Clientes</a>
                      <a href="" class="link-nav">Ventas</a>
                      <a href="" class="link-nav">Compras</a>
-                     <a href="" class="link-nav">Usuarios</a>
+                     <a href="editar.php" class="<?php if($_SERVER['SCRIPT_NAME'] == '/portalweb/editar.php') : echo "current-nav" ; endif; ?> link-nav">Usuarios</a>
                      
                      </div>
             </div>
