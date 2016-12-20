@@ -1,0 +1,46 @@
+* {
+    margin: 0 ;
+}
+body {
+    position: relative
+}
+
+ul {
+    
+    list-style: none ;
+}
+
+a:hover {
+    text-decoration: none
+}
+a {
+   text-decoration: none 
+}
+
+/*######################
+navegacion izquierda 
+######################*/
+
+.bg-black {
+    
+    background-color: #413f3f ;
+}
+
+.nav-right {
+    
+    width: 300px ;
+    height: 100%;
+    color: white ;
+    position: fixed ;
+    right: 1px;
+    
+}
+.nav-left-link {
+    
+    padding: 10px;
+    color: white ;
+    
+}
+.icon-menu {
+    font-size: 35px
+}
