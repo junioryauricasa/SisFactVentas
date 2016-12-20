@@ -205,27 +205,12 @@ $db->liberar();
               </div>            
 
  <?php  else :  ?>
+                
+                
+                
                  <br>
-                 
-                 <table class="table">
-                     <thead class="thead-inverse">
-                         <tr>
-                             <th> # </th>
-                             <th> Nombre </th>
-                             <th> Email </th>
-                             <th> DNI </th>
-                             <th> Telefono</th>
-                             <th> Direccion </th>
-                             <th> Edad </th>
-                             <th> Ciudad </th>
-                             <th> Departamento </th>
-                             <th> Fecha </th>
-                             <th>Editar/Eliminar</th>
-                         </tr>
-                     </thead>
-                     <tbody>
-                         
-                         <?php 
+          
+                 <?php 
     
                         if  ( isset($_GET['busqueda']) ) {
                             
@@ -332,12 +317,44 @@ $db->liberar();
                         $db->ejecutar();
                         $db->prep()->bind_result( $dbIDuser, $dbnombrecompleto, $dbemail, $dbdni,  $dbtelefono, $dbdireccion, $dbedad, $dbciudad, $dbdepartamento, $dbfecha );
                         $db->resultado();
+       
+          if ( isset( $_GET['busqueda'] ) ) {
+              
+              if ( $contador > 1) {
+                  echo "<h3> $contador resultados encontrados </h3>" ;
+              } else {
+                  echo "<h3> $contador resultado encontrado </h3>" ;
+              }
+          }
+           $conteo = $iniciar ;
+          ?>
                         
-
-                        $conteo = $iniciar ;
+                 <table class="table">
+                     <thead class="thead-inverse">
+                         <tr>
+                             <th> # </th>
+                             <th> Nombre </th>
+                             <th> Email </th>
+                             <th> DNI </th>
+                             <th> Telefono</th>
+                             <th> Direccion </th>
+                             <th> Edad </th>
+                             <th> Ciudad </th>
+                             <th> Departamento </th>
+                             <th> Fecha </th>
+                             <th>Editar/Eliminar</th>
+                         </tr>
+                     </thead>
+                     <tbody> 
+                         
+                <?php
                           while ( $db->resultado() ) {
                         $nombreC = ucwords($dbnombrecompleto);
-                        $conteo ++;
+                        $conteo ++; ?>
+                        
+                        
+                         
+                        <?php
               
                   echo "<tr>
                         <td>$conteo</td>
@@ -371,6 +388,18 @@ $db->liberar();
                   
               $anterior = ($pagina-1);
               $siguiente = ($pagina+1);
+          
+          
+              if ( isset($_GET['busqueda']) ) {
+                  
+                  $pagAnterior = "?pagina=$anterior&busqueda={$_GET['busqueda']}";
+                  $pagSiguiente = "?pagina=$siguiente&busqueda={$_GET['busqueda']}";
+                  
+              } else {
+                  
+                  $pagAnterior = "?pagina=$anterior";
+                  $pagSiguiente = "?pagina=$siguiente";
+              }
                    ?>
                    <div class="hori-cent">
                         <nav aria-label="Page navigation">
@@ -379,7 +408,7 @@ $db->liberar();
                             <?php if ( !($pagina <=1) ) : ?>
 
                                  <li class="page-item">
-                                  <a class="page-link" href='<?php echo "?pagina=$anterior" ?>' aria-label="anterior">
+                                  <a class="page-link" href='<?php echo "$pagAnterior" ?>' aria-label="anterior">
                                     <span aria-hidden="true">&laquo;</span>
                                     <span class="sr-only">Previous</span>
                                   </a>
@@ -387,7 +416,25 @@ $db->liberar();
 
                             <?php endif; ?>
 
-                                    <?php 
+                                    <?php
+                              
+                              if( isset( $_GET['busqueda'] ) ) {
+                                  
+                                  if ( $paginas >= 1) {
+
+                                      for( $x = 1; $x<=$paginas; $x++ ) {
+
+                                            echo ( $x == $pagina ) ? "<li class='page-item active'><a class='page-link' href='?pagina=$x&busqueda={$_GET['busqueda']}'>$x</a></li>" : 
+
+                                                                     "<li class='page-item'><a class='page-link' href='?pagina=$x&busqueda={$_GET['busqueda']}'>$x</a></li>" ;
+
+                                      }
+
+                                    }
+                                                                  
+                                  
+                              } else {
+                                  
 
                                     if ( $paginas >= 1) {
 
@@ -400,6 +447,9 @@ $db->liberar();
                                       }
 
                                     }
+                                  
+                                  
+                              }
 
 
 
@@ -407,7 +457,7 @@ $db->liberar();
                            <?php if ( !($pagina >= $paginas) ) :?>
 
                              <li class="page-item">
-                              <a class="page-link" href='<?php echo "?pagina=$siguiente" ?>' aria-label="siguiente">
+                              <a class="page-link" href='<?php echo "$pagSiguiente" ?>' aria-label="siguiente">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next</span>
                               </a>
@@ -419,7 +469,7 @@ $db->liberar();
                    </div>
 
       
-       </div>
+       </div> 
    
    
    <?php endif; ?>
