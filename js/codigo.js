@@ -1,6 +1,6 @@
 $(document).ready(function(){
     
-    Function write(arg){
+    function write(arg){
         document.write(arg);
     }
     

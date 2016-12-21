@@ -2,7 +2,8 @@
     margin: 0 ;
 }
 body {
-    position: relative
+    position: relative;
+    background-color: #ebede8 ;
 }
 
 ul {
@@ -11,10 +12,14 @@ ul {
 }
 
 a:hover {
-    text-decoration: none
+    text-decoration: none 
 }
 a {
    text-decoration: none 
+}
+#btn-menu {
+    
+    color: #413f3f ;
 }
 
 /*######################
@@ -32,15 +37,77 @@ navegacion izquierda
     height: 100%;
     color: white ;
     position: fixed ;
-    right: 1px;
+    right: 0px;
+    transition: all 0.3s ease-out
+    }
+
+.nav-right-active {
     
-}
-.nav-left-link {
-    
-    padding: 10px;
+    height: 100%;
     color: white ;
+    position: fixed ;
+    right: -300px;
+    width: 300px !important;
+    transition: all 0.3s ease-out;
     
 }
+
+.nav-left-link a{
+    
+    
+    color: white ;
+        
+}
+
+.nav-left-link a:focus{
+    
+    
+    color: white ;
+    text-decoration: none;
+        
+}
+
+.nav-left-link{
+    
+padding: 10px;
+    
+}
+
+.nav-left-link a:hover {
+    
+    color: #c3c6cb;
+    transition: all 0.2s ease-out;
+   
+        
+    }
+
 .icon-menu {
     font-size: 35px
 }
+#title-nav-left {
+    
+    padding: 10px
+}
+
+.sub-menu-nav-left {
+    
+    overflow: hidden ;
+    height: 0px;
+}
+.sub-left-link {
+    
+    padding: 3px;
+    
+}
+.sub-left-link a {
+    
+    color: rgb(186, 179, 179) ;
+}
+.sub-left-link a:hover {
+    
+    color: #fcfeff ;
+    color: #737a80 ;
+    transition: all 0.2s ease-out ;
+}
+
+
