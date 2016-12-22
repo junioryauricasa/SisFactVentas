@@ -2,14 +2,23 @@ $(document).ready(function(){
     
    function menuLeft () {
        
-       var activador = true ; 
-    
       $('#btn-left-menu').click( function(){ 
           
-          if ( activador == true ) {
+           var activador = true ; 
+          
+          if ( $( window ).width() <= 576 ) {
+              
+              if ( activador == true ) {
               
               $('#left-navbar').removeClass('nav-right') ;
               $('#left-navbar').addClass('nav-right-active');
+              $('.panel-left').css({
+                        
+                        'left' :'-1px',
+                        'width': '0%',                 
+                     'transition': 'all 0.3s ease-out'
+                        
+                    });
               $('#btn-menu').css({
                   'color': '#14a1eb',
                   });
@@ -20,12 +29,24 @@ $(document).ready(function(){
               
               $('#left-navbar').removeClass('nav-right-active')
               $('#left-navbar').addClass('nav-right');
+              $('.panel-left').css({
+                        
+                        'left' :' 0px',
+                  'width': '100%', 
+                  'transition': 'all 0.3s ease-out'
+                        
+                    });
               $('#btn-menu').css({
                   'color': '#413f3f',
                   });
     
                 activador = true ;
           }
+           
+           
+       }
+          
+          
     
         
         
