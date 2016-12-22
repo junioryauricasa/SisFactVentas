@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
     <title>Seltron</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/iconos.css">
@@ -10,32 +11,34 @@
 </head>
 <body>
       <nav class="navbar navbar-light bg-faded">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <ul class="nav navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
+      <a class="navbar-brand" href="#"><h4>Celerix 1.0</h4></a>
+      <ul class="nav navbar-nav hidden-xs-down">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <a class="nav-link dropdown-toggle" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Soporte</a>
           <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">Version</a>
+            <a class="dropdown-item" href="#">About</a>
+            <a class="dropdown-item" href="#">Developer</a>
           </div>
         </li>
-      </ul>
-      <a href="#" id="btn-left-menu"><span class="icon-menu pull-xs-right" id="btn-menu"></span></a>
+       </ul>
+       <ul class="pull-xs-right" id="profile-cont">
+          <li><span class="icon-user-tie"> </span></li>
+           <li id="nick-user-nav"><a href="#"><span><h5>Jose Rodriguez </h5><span class="icon-circle-down"></span></span></a>
+           <div id="profile-menu">
+               <ul>
+                   <li><a href=""><span class="icon-switch"></span> Logout</a></li>
+                   <li><a href=""></a><span class="icon-loop2"></span> Update record</li>
+               </ul>
+           </div>
+           </li>
+           <li><a href="#" id="btn-left-menu"><span class="icon-menu" id="btn-menu"></span></a></li>
+       </ul>
       </nav>
-   <div class="nav-right bg-black" id="left-navbar">
+   <div class="nav-right bg-black" id="right-navbar">
       <h4 class="text-xs-center" id="title-nav-left">Administración</h4>
        <ul>
-          <li class="nav-left-link" id="menu-1"><a  href="#"> Home <span class="icon-home text-xs-center"></span> <span class="icon-circle-left pull-xs-right" id="icono-circ-1"></span></a></li>
+          <li class="nav-left-link" id="menu-1"><a  href="#"><span class="icon-home text-xs-center"></span> Almacen  <span class="icon-circle-left pull-xs-right" id="icono-circ-1"></span></a></li>
              <div class="sub-menu-nav-left" id="sub-menu-1">
                   <ul>
                   <li class="sub-left-link"><a href="#">Panel</a></li>
@@ -45,7 +48,7 @@
                   </ul>
               </div>
           
-          <li class="nav-left-link" id="menu-2"><a href="#">Operaciones <span class="icon-coin-dollar"></span><span class="icon-circle-left pull-xs-right" id="icono-circ-2"></span> </a></li>
+          <li class="nav-left-link" id="menu-2"><a href="#"><span class="icon-coin-dollar"></span> Compras <span class="icon-circle-left pull-xs-right" id="icono-circ-2"></span> </a></li>
                  <div class="sub-menu-nav-left" id="sub-menu-2">
                   <ul>
                   <li class="sub-left-link"><a href="">Ventas</a></li>
@@ -54,7 +57,7 @@
 
                   </ul>
                  </div>  
-          <li class="nav-left-link" id="menu-3"><a href="#">Clientes <span class="icon-user"></span><span class="icon-circle-left pull-xs-right" id="icono-circ-3"></span></a></li>
+          <li class="nav-left-link" id="menu-3"><a href="#"> <span class="icon-user"></span> Ventas <span class="icon-circle-left pull-xs-right" id="icono-circ-3"></span></a></li>
                  <div class="sub-menu-nav-left" id="sub-menu-3">
                   <ul>
                   <li class="sub-left-link"><a href="">Ventas</a></li>
@@ -63,7 +66,7 @@
 
                   </ul>
                  </div>
-          <li class="nav-left-link" id="menu-4"><a href="#">Productos <span class="icon-cart"></span><span class="icon-circle-left pull-xs-right" id="icono-circ-4"></span></a></li>
+          <li class="nav-left-link" id="menu-4"><a href="#"><span class="icon-cart"></span> Tipos de documentos <span class="icon-circle-left pull-xs-right" id="icono-circ-4"></span></a></li>
                   <div class="sub-menu-nav-left" id="sub-menu-4">
                   <ul>
                   <li class="sub-left-link"><a href="">Ventas</a></li>
@@ -72,7 +75,7 @@
 
                   </ul>
                  </div>
-          <li class="nav-left-link" id="menu-5"><a href="#">Usuarios <span class="icon-user-check"></span><span class="icon-circle-left pull-xs-right" id="icono-circ-5"></span></a></li>
+          <li class="nav-left-link" id="menu-5"><a href="#"><span class="icon-user-check"></span> Inventarios <span class="icon-circle-left pull-xs-right" id="icono-circ-5"></span></a></li>
                   <div class="sub-menu-nav-left" id="sub-menu-5">
                   <ul>
                   <li class="sub-left-link"><a href="">Ventas</a></li>
@@ -91,14 +94,14 @@
                     <h2>Resumen diciembre</h2>
                     
                 </div>
-                <div class="calendar-desc pull-xs-right ">
+                <div class="calendar-desc pull-xs-right hidden-sm-down ">
                     <h6 class="text-muted text-xs-center">Lunes 23 de diciembre del 2019</h6>
                 </div>
                 
             </div>
         </div>
-         <div class="row">
-             <div class="col-md-3">
+         <div class="row" id="cont-cards">
+             <div class="col-xs-6 offset-sm-1 col-sm-5 offset-md-0 col-md-6 col-lg-4 col-xl-3">
                  <div class="panel-card">
                     <div class="head-card">
                       <span class="icon-stats-dots"></span>
@@ -109,7 +112,7 @@
                      </div>
                  </div>
              </div>
-             <div class="col-md-3">
+             <div class="col-xs-6 col-sm-5 offset-md-0 col-md-6 col-lg-4 col-xl-3">
                  <div class="panel-card">
                     <div class="head-card">
                       <span class="icon-cart icon-cart2"></span>
@@ -120,7 +123,7 @@
                      </div>
                  </div>
              </div>
-             <div class="col-md-3">
+             <div class="col-xs-6 offset-sm-1 col-sm-5 offset-md-0 col-md-6 col-lg-4 col-xl-3">
                  <div class="panel-card">
                     <div class="head-card">
                       <span class="icon-truck"></span> 
@@ -131,7 +134,7 @@
                      </div>
                  </div>
              </div>
-             <div class="col-md-3">
+             <div class="col-xs-6 col-sm-5 offset-md-0 col-md-6 col-lg-4 col-xl-3">
                  <div class="panel-card">
                     <div class="head-card">
                       <span class="icon-users"></span> 
@@ -142,6 +145,9 @@
                      </div>
                  </div>
              </div>
+         </div>
+         <div class="row">
+             
          </div>
           
       </div>

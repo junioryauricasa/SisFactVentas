@@ -1,43 +1,355 @@
 $(document).ready(function(){
     
+    
+    function dropdownProfile() {
+        
+        var activador = true ;
+        
+        $('#nick-user-nav').click(function(){
+            
+              if( activador == true ) {
+            
+            $('#profile-menu').css({
+            
+                 'display':'flex',
+                'flex-direction': 'column',
+                'position': 'fixed' ,
+                'z-index' : '1',
+                'border': '1px solid #f7f7f9 ',
+                'padding': '5px',
+                'background-color': '#f7f7f9' ,
+                'font-size': '15px',
+                'transition': 'all 0.3s ease-out' 
+            
+        })
+            
+        activador = false ;
+        
+        } else {
+                                  
+                $('#profile-menu').css({
+            
+                'display':'none',
+                'flex-direction': 'column',
+                'position': 'fixed' ,
+                'z-index' : '1',
+                'border': '1px solid #f7f7f9 ',
+                'padding': '5px',
+                'background-color': '#f7f7f9' ,
+                'font-size': '15px',
+                'transition': 'all 0.3s ease-out' 
+            
+        })
+        activador = true ;
+                                  
+                }
+            
+            
+            
+        })
+        
+      
+        
+    }
+    
+     dropdownProfile()
+     
    function menuLeft () {
+       
+     var activador = true ; 
        
       $('#btn-left-menu').click( function(){ 
           
-           var activador = true ; 
-          
+
           if ( $( window ).width() <= 576 ) {
               
+             
               if ( activador == true ) {
-              
-              $('#left-navbar').removeClass('nav-right') ;
-              $('#left-navbar').addClass('nav-right-active');
+                            
+                $('#right-navbar').css({ 
+                'position': 'fixed',
+                'height' : '100%',
+                'color': 'white',
+                'width' : '70%',
+                'right': '0px',
+                'transition': 'all 0.3s ease-out'              
+              });
+                  
               $('.panel-left').css({
                         
-                        'left' :'-1px',
-                        'width': '0%',                 
+                        'left' :'-70%',
+                        'width': '100%',                 
                      'transition': 'all 0.3s ease-out'
                         
                     });
+                  
               $('#btn-menu').css({
-                  'color': '#14a1eb',
+                  'color': '#413f3f',
                   });
     
                 activador = false ;
               
           } else {
               
-              $('#left-navbar').removeClass('nav-right-active')
-              $('#left-navbar').addClass('nav-right');
+            
+              
+              $('#right-navbar').css({ 
+                'position': 'fixed',
+                'height' : '100%',
+                'color': 'white',
+                'width' : '70%',
+                'right': '-70%',
+                'transition': 'all 0.3s ease-out'              
+              });
+              
               $('.panel-left').css({
                         
-                        'left' :' 0px',
+                  'left' :' 0px',
                   'width': '100%', 
                   'transition': 'all 0.3s ease-out'
                         
                     });
               $('#btn-menu').css({
+                  'color': '#300eea',
+                  });
+    
+                activador = true ;
+          }
+           
+           
+       } else if ( ( $( window ).width() >=577 ) && ( $( window ).width() <= 768 ) ) {
+              
+
+              
+              if ( activador == true ) {
+                            
+                $('#right-navbar').css({ 
+                'position': 'fixed',
+                'height' : '100%',
+                'color': 'white',
+                'width' : '35%',
+                'right': '0px',
+                'transition': 'all 0.3s ease-out'              
+              });
+                  
+              $('.panel-left').css({
+                        
+                        'left' :'-35%',
+                        'width': '100%',                 
+                     'transition': 'all 0.3s ease-out'
+                        
+                    });
+                  
+              $('#btn-menu').css({
                   'color': '#413f3f',
+                  });
+    
+                activador = false ;
+              
+          } else {
+              
+            
+              
+              $('#right-navbar').css({ 
+                'position': 'fixed',
+                'height' : '100%',
+                'color': 'white',
+                'width' : '35%',
+                'right': '-35%',
+                'transition': 'all 0.3s ease-out'              
+              });
+              
+              $('.panel-left').css({
+                        
+                  'left' :' 0px',
+                  'width': '100%', 
+                  'transition': 'all 0.3s ease-out'
+                        
+                    });
+              $('#btn-menu').css({
+                  'color': '#300eea',
+                  });
+    
+                activador = true ;
+          }
+           
+           
+       } else if ( ( $( window ).width() >=769 ) && ( $( window ).width() <=992 ) ) {
+           
+           
+
+              
+              if ( activador == true ) {
+                            
+                $('#right-navbar').css({ 
+                'position': 'fixed',
+                'height' : '100%',
+                'color': 'white',
+                'width' : '30%',
+                'right': '0px',
+                'transition': 'all 0.3s ease-out'              
+              });
+                  
+              $('.panel-left').css({
+                        
+                    'left' :'0px',
+                    'width': '70%',                 
+                    'transition': 'all 0.3s ease-out'
+                        
+                    });
+                $('.calendar-desc').css({
+                    
+                    'display':'none'
+                })  
+                 
+                  
+              $('#btn-menu').css({
+                  'color': '#413f3f',
+                  });
+    
+                activador = false ;
+              
+          } else {
+              
+            
+              
+              $('#right-navbar').css({ 
+                'position': 'fixed',
+                'height' : '100%',
+                'color': 'white',
+                'width' : '30%',
+                'right': '-30%',
+                'transition': 'all 0.3s ease-out'              
+              });
+              
+              $('.panel-left').css({
+                        
+                  'left' :' 0px',
+                  'width': '100%', 
+                  'transition': 'all 0.3s ease-out'
+                        
+                    });
+              
+               $('.calendar-desc').css({
+                      'display': 'flex'
+                  });
+                  
+              $('#btn-menu').css({
+                  'color': '#300eea',
+                  });
+    
+                activador = true ;
+          }
+           
+           
+       } else if ( ( $( window ).width() >=993 ) && ( $( window ).width() <= 1200 ) ) {
+              
+
+              
+              if ( activador == true ) {
+                            
+                $('#right-navbar').css({ 
+                'position': 'fixed',
+                'height' : '100%',
+                'color': 'white',
+                'width' : '30%',
+                'right': '0px',
+                'transition': 'all 0.3s ease-out'              
+              });
+                  
+              $('.panel-left').css({
+                        
+                    'left' :'0px',
+                    'width': '70%',                 
+                    'transition': 'all 0.3s ease-out'
+                        
+                    });
+                  
+              $('#btn-menu').css({
+                  'color': '#413f3f',
+                  });
+    
+                activador = false ;
+              
+          } else {
+              
+            
+              
+              $('#right-navbar').css({ 
+                'position': 'fixed',
+                'height' : '100%',
+                'color': 'white',
+                'width' : '30%',
+                'right': '-30%',
+                'transition': 'all 0.3s ease-out'              
+              });
+              
+              $('.panel-left').css({
+                        
+                  'left' :' 0px',
+                  'width': '100%', 
+                  'transition': 'all 0.3s ease-out'
+                        
+                    });
+              $('#btn-menu').css({
+                  'color': '#300eea',
+                  });
+    
+                activador = true ;
+          }
+           
+           
+       } else if ( $( window ).width() >= 1201 ) {
+              
+
+              
+              if ( activador == true ) {
+                            
+                $('#right-navbar').css({ 
+                'position': 'fixed',
+                'height' : '100%',
+                'color': 'white',
+                'width' : '20%',
+                'right': '0px',
+                'transition': 'all 0.3s ease-out'              
+              });
+                  
+              $('.panel-left').css({
+                        
+                    'left' :'0px',
+                    'width': '80%',                 
+                    'transition': 'all 0.3s ease-out'
+                        
+                    });
+                  
+              $('#btn-menu').css({
+                  'color': '#413f3f',
+                  });
+    
+                activador = false ;
+              
+          } else {
+              
+            
+              
+              $('#right-navbar').css({ 
+                'position': 'fixed',
+                'height' : '100%',
+                'color': 'white',
+                'width' : '30%',
+                'right': '-30%',
+                'transition': 'all 0.3s ease-out'              
+              });
+              
+              $('.panel-left').css({
+                        
+                  'left' :' 0px',
+                  'width': '100%', 
+                  'transition': 'all 0.3s ease-out'
+                        
+                    });
+              $('#btn-menu').css({
+                  'color': '#300eea',
                   });
     
                 activador = true ;

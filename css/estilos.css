@@ -21,6 +21,55 @@ a {
     
     color: #413f3f ;
 }
+#profile-cont  {
+    
+    display: inline-flex ;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0px;
+    position: relative ;
+    
+}
+#profile-cont > li  {
+    
+    margin: 5px;
+    text-decoration: none ;
+    
+}
+#profile-cont h5 {
+    
+    color: #413f3f 
+}
+.icon-user-tie {
+    
+    color: #413f3f ;
+    font-size: 30px
+}
+#profile-cont li:focus {
+    
+    text-decoration: none ;
+    
+}
+#profile-cont li a {
+    
+    text-decoration: none ;
+    
+}
+#profile-cont li a:hover {
+    
+    text-decoration: none ;
+    
+}
+
+#profile-menu {
+    
+    display:none;
+    
+
+}
+#profile-menu ul {
+     padding-left: 8px ;
+}
 
 /*######################
 navegacion derecha 
@@ -33,36 +82,37 @@ navegacion derecha
 
 .nav-right {
     
-    width: 18% ;
+    width: 70% ;
     height: 100%;
     color: white ;
     position: fixed ;
-    right: 0px;
+    right: -70%;
     transition: all 0.3s ease-out
+        
     }
 
-@media (max-width: 576px){
+@media (max-width: 576px) {
     
     .nav-right {
     
-    width: 80% ;
+    width: 70% ;
     height: 100%;
     color: white ;
     position: fixed ;
-    right: -1px;
+    right: -70%;
     transition: all 0.3s ease-out
+        
     }
     
-    .nav-right-active {
-    
-    height: 100%;
-    color: white ;
-    position: fixed ;
-    right: 0px;
-    width: 100%;
-    transition: all 0.3s ease-out;
 }
 
+#title-nav-left {
+    
+    padding: 10px;
+    font-size: 20px
+}
+    
+}
 .nav-right-active {
     
     height: 100%;
@@ -139,10 +189,18 @@ Panel izquierda
 .panel-left {
     
     position: fixed;
-    width: 82% ;
-    height: 500%;
+    width: 100% ;
+    height: 100%;
     left: 0px;
-    background-color: rgba(227, 227, 230, 0.99)
+    background-color: rgba(227, 227, 230, 0.99);
+    overflow: scroll;
+    flex-wrap: wrap
+}
+
+#cont-cards {
+    
+    display: flex;
+    flex-wrap: wrap
 }
 @media (max-width: 576px){
     
@@ -155,7 +213,10 @@ Panel izquierda
     background-color: rgba(227, 227, 230, 0.99);
     overflow: scroll
 }
+    
 }
+
+
 .month-desc{
     
     display: flex ;
@@ -173,11 +234,12 @@ Panel izquierda
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 30% ;
+    width: 40% ;
     height: 30px;
     background-color: #fafafa ;
     margin-top: 30px;
     box-shadow: 1px 1px 5px 2px #9d9393 ;
+    transition: all 0.3s ease-out
     
 }
 
@@ -239,8 +301,71 @@ Panel izquierda
     
 }
 
+
+    
+
+@media ( max-width: 576px ) {
+    
+    .coin-card {
+    padding: 5px;
+    font-size: 20px;
+    color: #b4b7ba;
+    
+}
+    
+}
+
 .desc-card-letter {
     
     color: white ;
     font-size: 30px
+}
+@media ( max-width: 576px ) {
+    
+.desc-card-letter {
+    
+    color: white ;
+    font-size: 20px
+}
+
+@media ( max-width: 576px ) {
+    
+    
+ .month-desc{
+    
+    display: flex ;
+    flex-direction: row;
+    align-items: center;
+    height: 70px;
+    width: 90%;
+    padding-top: 20px;
+    border-bottom: 1px solid #c1c1c4 ;
+        
+}   
+    .month-desc h2 {
+        
+        font-size: 25px
+    }
+  .icon-stats-dots{
+    
+    font-size: 50px;
+    color: #57cc57;
+    margin-top: 10px
+    
+}
+.icon-cart2 {
+    font-size: 50px;
+    color: #57cc57;
+    margin-top: 20px
+}
+.icon-truck{
+     font-size: 50px;
+    color: #57cc57;
+    margin-top: 20px
+}
+.icon-users {
+    font-size: 50px;
+    color: #57cc57;
+    margin-top: 20px
+}  
 }
