@@ -5,13 +5,13 @@ $(document).ready(function(){
         
         var activador = true ;
         
-        $('#nick-user-nav').click(function(){
+        $('#nick-user-nav').focusin(function(){
             
-              if( activador == true ) {
+
             
             $('#profile-menu').css({
             
-                 'display':'flex',
+                'display':'flex',
                 'flex-direction': 'column',
                 'position': 'fixed' ,
                 'z-index' : '1',
@@ -19,15 +19,24 @@ $(document).ready(function(){
                 'padding': '5px',
                 'background-color': '#f7f7f9' ,
                 'font-size': '15px',
-                'transition': 'all 0.3s ease-out' 
+                'border' : '1px solid rgba(203, 203, 203, 0.98)', 
+                'transition': 'all 0.3s ease-out'
             
-        })
+             })
             
-        activador = false ;
+             $('.icon-perfil').css({
+                 
+                'transform':'rotate(-90deg)',
+                'transition':'all 0.2s ease-out'
+             
+            })
+            
+       })
         
-        } else {
-                                  
-                $('#profile-menu').css({
+        $('#nick-user-nav').focusout(function(){
+            
+            
+            $('#profile-menu').css({
             
                 'display':'none',
                 'flex-direction': 'column',
@@ -37,20 +46,33 @@ $(document).ready(function(){
                 'padding': '5px',
                 'background-color': '#f7f7f9' ,
                 'font-size': '15px',
-                'transition': 'all 0.3s ease-out' 
+                'border' : '1px solid rgba(203, 203, 203, 0.98)', 
+                'transition': 'all 0.3s ease-out'
             
-        })
-        activador = true ;
-                                  
-                }
+             })
+            
+             $('.icon-perfil').css({
+                 
+                'transform':'rotate(-90deg)',
+                'transition':'all 0.2s ease-out'
+             
+            })
+            
+             activador = false ;
             
             
+       
+           
             
-        })
-        
+        activador = false ;
       
         
+
+        })
+        
+       
     }
+   
     
      dropdownProfile()
      

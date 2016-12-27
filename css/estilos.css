@@ -36,7 +36,7 @@ a {
     text-decoration: none ;
     
 }
-#profile-cont h5 {
+#profile-cont h6 {
     
     color: #413f3f 
 }
@@ -61,14 +61,26 @@ a {
     
 }
 
+
 #profile-menu {
     
     display:none;
-    
 
 }
 #profile-menu ul {
-     padding-left: 8px ;
+    padding-left: 8px ;
+}
+#profile-menu ul li a{
+    
+    color: rgb(111, 111, 111) !important
+    
+}
+#sub-profile-menu {
+    
+    display: inline-flex ;
+    align-items: center ;
+    padding-left: 0px;
+
 }
 
 /*######################
@@ -182,6 +194,16 @@ padding: 10px;
     transition: all 0.2s ease-out ;
 }
 
+#pic-profile {
+    
+    height: 50px ;
+    width: 60px;
+    border-radius: 5px
+}
+#icon-perfil {
+    
+    color: #444645 ;
+}
 /*######################
 Panel izquierda 
 ######################*/
