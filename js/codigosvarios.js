@@ -1,80 +1,6 @@
 $(document).ready(function(){
     
     
-    function dropdownProfile() {
-        
-        var activador = true ;
-        
-        $('#nick-user-nav').focusin(function(){
-            
-
-            
-            $('#profile-menu').css({
-            
-                'display':'flex',
-                'flex-direction': 'column',
-                'position': 'fixed' ,
-                'z-index' : '1',
-                'border': '1px solid #f7f7f9 ',
-                'padding': '5px',
-                'background-color': '#f7f7f9' ,
-                'font-size': '15px',
-                'border' : '1px solid rgba(203, 203, 203, 0.98)', 
-                'transition': 'all 0.3s ease-out'
-            
-             })
-            
-             $('.icon-perfil').css({
-                 
-                'transform':'rotate(-90deg)',
-                'transition':'all 0.2s ease-out'
-             
-            })
-            
-       })
-        
-        $('#nick-user-nav').focusout(function(){
-            
-            
-            $('#profile-menu').css({
-            
-                'display':'none',
-                'flex-direction': 'column',
-                'position': 'fixed' ,
-                'z-index' : '1',
-                'border': '1px solid #f7f7f9 ',
-                'padding': '5px',
-                'background-color': '#f7f7f9' ,
-                'font-size': '15px',
-                'border' : '1px solid rgba(203, 203, 203, 0.98)', 
-                'transition': 'all 0.3s ease-out'
-            
-             })
-            
-             $('.icon-perfil').css({
-                 
-                'transform':'rotate(-90deg)',
-                'transition':'all 0.2s ease-out'
-             
-            })
-            
-             activador = false ;
-            
-            
-       
-           
-            
-        activador = false ;
-      
-        
-
-        })
-        
-       
-    }
-   
-    
-     dropdownProfile()
      
    function menuLeft () {
        
@@ -106,7 +32,7 @@ $(document).ready(function(){
                     });
                   
               $('#btn-menu').css({
-                  'color': '#413f3f',
+                  'color': 'rgba(178, 178, 178, 0.97)',
                   });
     
                 activador = false ;
@@ -132,7 +58,7 @@ $(document).ready(function(){
                         
                     });
               $('#btn-menu').css({
-                  'color': '#300eea',
+                  'color':  '#d6d6d6',
                   });
     
                 activador = true ;
@@ -163,7 +89,7 @@ $(document).ready(function(){
                     });
                   
               $('#btn-menu').css({
-                  'color': '#413f3f',
+                  'color': 'rgba(178, 178, 178, 0.97)',
                   });
     
                 activador = false ;
@@ -189,7 +115,7 @@ $(document).ready(function(){
                         
                     });
               $('#btn-menu').css({
-                  'color': '#300eea',
+                  'color':  '#d6d6d6',
                   });
     
                 activador = true ;
@@ -226,7 +152,7 @@ $(document).ready(function(){
                  
                   
               $('#btn-menu').css({
-                  'color': '#413f3f',
+                  'color': 'rgba(178, 178, 178, 0.97)',
                   });
     
                 activador = false ;
@@ -257,7 +183,7 @@ $(document).ready(function(){
                   });
                   
               $('#btn-menu').css({
-                  'color': '#300eea',
+                  'color':  '#d6d6d6',
                   });
     
                 activador = true ;
@@ -288,7 +214,7 @@ $(document).ready(function(){
                     });
                   
               $('#btn-menu').css({
-                  'color': '#413f3f',
+                  'color': 'rgba(178, 178, 178, 0.97)',
                   });
     
                 activador = false ;
@@ -314,7 +240,7 @@ $(document).ready(function(){
                         
                     });
               $('#btn-menu').css({
-                  'color': '#300eea',
+                  'color':  '#d6d6d6',
                   });
     
                 activador = true ;
@@ -345,7 +271,7 @@ $(document).ready(function(){
                     });
                   
               $('#btn-menu').css({
-                  'color': '#413f3f',
+                  'color': 'rgba(178, 178, 178, 0.97)',
                   });
     
                 activador = false ;
@@ -371,7 +297,7 @@ $(document).ready(function(){
                         
                     });
               $('#btn-menu').css({
-                  'color': '#300eea',
+                  'color': '#d6d6d6',
                   });
     
                 activador = true ;

@@ -17,6 +17,15 @@ a:hover {
 a {
    text-decoration: none 
 }
+
+.text-white {
+    
+    color: white !important;
+}
+.bg-navbar-main {
+    
+    background-color: rgb(8, 10, 65) ;
+}
 #btn-menu {
     
     color: #413f3f ;
@@ -29,6 +38,11 @@ a {
     margin-bottom: 0px;
     position: relative ;
     
+}
+
+#title-nav {
+    
+    padding-top: 0.60rem;
 }
 #profile-cont > li  {
     
@@ -82,6 +96,39 @@ a {
     padding-left: 0px;
 
 }
+#nick-user-nav:hover div {
+    
+    display :flex ;
+    border-radius: 4px;
+    flex-direction : column ;
+    position : fixed ;
+    z-index : 1 ;
+    background-color : #f7f7f9 ;
+    font-size : 15px ;
+    border : 1px solid rgba(203, 203, 203, 0.98) ; 
+    transition: all 0.3s ease-out
+}
+#profile-menu ul {
+    
+    padding-left: 0px
+}
+#profile-menu li {
+    padding: 5px 15px ;
+    
+}
+#profile-menu li:hover {
+    
+    background-color: #ededed ;
+}
+#icon-perfil-top {
+    
+    color: #444645 ;
+}
+#icon-perfil-top:hover .icon-perfil{
+    
+    transition : all 0.2s ease-out !important;
+    transform : rotate(-90deg) !important;
+}
 
 /*######################
 navegacion derecha 
@@ -123,8 +170,11 @@ navegacion derecha
     padding: 10px;
     font-size: 20px
 }
+#list-menu-left {
     
-}
+    padding-left: 10px
+} 
+
 .nav-right-active {
     
     height: 100%;
@@ -168,10 +218,7 @@ padding: 10px;
 .icon-menu {
     font-size: 35px
 }
-#title-nav-left {
-    
-    padding: 10px
-}
+
 
 .sub-menu-nav-left {
     
@@ -200,10 +247,7 @@ padding: 10px;
     width: 60px;
     border-radius: 5px
 }
-#icon-perfil {
-    
-    color: #444645 ;
-}
+
 /*######################
 Panel izquierda 
 ######################*/
@@ -238,156 +282,84 @@ Panel izquierda
     
 }
 
-
-.month-desc{
+.box-border {
     
-    display: flex ;
-    flex-direction: row;
-    align-items: center;
-    height: 70px;
-    width: 350px;
-    padding-top: 20px;
-    border-bottom: 1px solid #c1c1c4 ;
-        
+    box-shadow: 0px 0px 6px 1px rgba(2,2,2,0.12);
+    
 }
-.calendar-desc {
+.cont-icon-descp {
     
-    display: flex ;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 40% ;
-    height: 30px;
-    background-color: #fafafa ;
-    margin-top: 30px;
-    box-shadow: 1px 1px 5px 2px #9d9393 ;
-    transition: all 0.3s ease-out
+    height: 70px ;
+    width: 170px ;
+    display: inline-flex ;
+    flex-direction: row ;
+    align-items: center ;
+    position: relative ;
+    
     
 }
 
-.panel-card {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 240px;
-    background-color: white;
-    margin-top: 20px;
-    border-radius: 10px
-}
-.head-card {
+.cont-shotcouts {
     
-    height: 70%;
-    display: flex ;
-    flex-direction: column ;
+    display: inline-flex ;
+    flex-direction: row ;
+    align-items: center ;
     justify-content: center ;
-    align-items: center;
-    
-}
-.desc-card {
-    
-    height: 30%;
-    background-color: #57cc57 ;
-    display: flex ;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px
-}
-.icon-stats-dots{
-    
-    font-size: 100px;
-    color: #57cc57;
-    margin-top: 20px
-    
-}
-.icon-cart2 {
-    font-size: 100px;
-    color: #57cc57;
-    margin-top: 20px
-}
-.icon-truck{
-     font-size: 100px;
-    color: #57cc57;
-    margin-top: 20px
-}
-.icon-users {
-    font-size: 100px;
-    color: #57cc57;
-    margin-top: 20px
-}
-.coin-card {
-    padding: 5px;
-    font-size: 30px;
-    color: #b4b7ba;
-    
-}
-
-
-    
-
-@media ( max-width: 576px ) {
-    
-    .coin-card {
-    padding: 5px;
-    font-size: 20px;
-    color: #b4b7ba;
-    
-}
-    
-}
-
-.desc-card-letter {
-    
-    color: white ;
-    font-size: 30px
-}
-@media ( max-width: 576px ) {
-    
-.desc-card-letter {
-    
-    color: white ;
-    font-size: 20px
-}
-
-@media ( max-width: 576px ) {
-    
-    
- .month-desc{
-    
-    display: flex ;
-    flex-direction: row;
-    align-items: center;
     height: 70px;
-    width: 90%;
-    padding-top: 20px;
-    border-bottom: 1px solid #c1c1c4 ;
-        
-}   
-    .month-desc h2 {
-        
-        font-size: 25px
-    }
-  .icon-stats-dots{
-    
-    font-size: 50px;
-    color: #57cc57;
-    margin-top: 10px
+    width: 70px ;
+    border: 2px solid white ;
+    background-color: orangered ;
+    float: left ;
+    position: absolute;
+    z-index: 2 ;
+    border-radius: 50px;
+     transform: scale(1.3);
+    transition: all .3s ease-out
     
 }
-.icon-cart2 {
-    font-size: 50px;
-    color: #57cc57;
-    margin-top: 20px
+.cont-shotcouts:hover {
+    
+    display: inline-flex ;
+    flex-direction: row ;
+    align-items: center ;
+    justify-content: center ;
+    height: 70px;
+    width: 70px ;
+    border: 2px solid white ;
+    background-color: orangered ;
+    border-radius: 50px;
+    transform: scale(1.3);
+    transition: all .2s ease-out
+    
 }
-.icon-truck{
-     font-size: 50px;
-    color: #57cc57;
-    margin-top: 20px
+.cont-shotcouts:hover span {
+    
+    transform: scale(1.3);
+    color: white ;
+    transition: all .2s ease-out
+    
 }
-.icon-users {
-    font-size: 50px;
-    color: #57cc57;
-    margin-top: 20px
-}  
+.name-descp {
+    
+    display: flex ;
+    flex-direction: row ;
+    align-items: center ;
+    justify-content: center;
+    height: 40px ;
+    width: 100px ;
+    border-radius: 10px;
+    position: absolute;
+    border: 2px solid orangered ;
+    right: 0px;
+   
+}
+.name-descp  {
+    
+    color: orangered ;
+}
+.icono-ventas-main {
+    
+    font-size: 2rem;
+    color: white ;
+    transition: all .3s ease-out
 }

@@ -8,30 +8,22 @@
     <link rel="stylesheet" href="css/iconos.css">
     <link rel="stylesheet" href="css/iconos.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/iconos-flat.css">
 </head>
 <body>
-      <nav class="navbar navbar-light bg-faded">
-      <a class="navbar-brand" href="#"><h4>Celerix 1.0</h4></a>
-      <ul class="nav navbar-nav hidden-xs-down">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Soporte</a>
-          <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
-            <a class="dropdown-item" href="#">Version</a>
-            <a class="dropdown-item" href="#">About</a>
-            <a class="dropdown-item" href="#">Developer</a>
-          </div>
-        </li>
-       </ul>
+      <nav class="navbar navbar-light bg-navbar-main">
+      <a class="navbar-brand hidden-xs-down text-white "  href="#" id="title-nav"><h2>Celerix 1.0</h2></a>
+      
        <ul class="pull-xs-right" id="profile-cont">
           <li><img src="fotos/13/frijolera/profile.jpg" alt="foto-profile" class="img-fluid rounded" id="pic-profile"></li>
            <li id="nick-user-nav">
            <ul id="sub-profile-menu">
-               <li><a href="#"><h6>Jose Rodriguez   </h6></a></li>
-              <li><a href="#"><span class="icon-circle-left icon-perfil" id="icon-perfil"></span></a></li>
+               <li><a href="#"><h6 class="text-white">Jose Rodriguez   </h6></a></li>
+              <li><a href="#"><span class="icon-circle-left icon-perfil text-white" id="icon-perfil-top"></span></a></li>
            </ul>
-           <div id="profile-menu" class="img-thumbnail">
+           <div id="profile-menu" >
                <ul>
-                   <li><a href=""><span class="icon-loop2"></span> Update record</a></li>
+                   <li><a href=""><span class="icon-loop2"></span> Update info</a></li>
                    <li><a href="index.html"><span class="icon-switch"></span> Logout</a></li>
                </ul>
            </div>
@@ -41,7 +33,7 @@
       </nav>
    <div class="nav-right bg-black" id="right-navbar">
       <h4 class="text-xs-center" id="title-nav-left">Administración</h4>
-       <ul>
+       <ul id="list-menu-left">
           <li class="nav-left-link" id="menu-1"><a  href="#"><span class="icon-home text-xs-center"></span> Almacen  <span class="icon-circle-left pull-xs-right" id="icono-circ-1"></span></a></li>
              <div class="sub-menu-nav-left" id="sub-menu-1">
                   <ul>
@@ -88,80 +80,115 @@
 
                   </ul>
                  </div>
+          <li class="nav-left-link" id="menu-6"><a href="#"><span class="icon-user-check"></span> Reportes de compras <span class="icon-circle-left pull-xs-right" id="icono-circ-5"></span></a></li>
+                  <div class="sub-menu-nav-left" id="sub-menu-6">
+                  <ul>
+                  <li class="sub-left-link"><a href="">Ventas</a></li>
+                  <li class="sub-left-link"><a href="">Compras</a></li>
+                  <li class="sub-left-link"><a href="">Cotizar</a></li>
+
+                  </ul>
+                 </div>
+          <li class="nav-left-link" id="menu-7"><a href="#"><span class="icon-user-check"></span> Reporte de ventas <span class="icon-circle-left pull-xs-right" id="icono-circ-5"></span></a></li>
+                  <div class="sub-menu-nav-left" id="sub-menu-7">
+                  <ul>
+                  <li class="sub-left-link"><a href="">Ventas</a></li>
+                  <li class="sub-left-link"><a href="">Compras</a></li>
+                  <li class="sub-left-link"><a href="">Cotizar</a></li>
+
+                  </ul>
+                 </div>
+          <li class="nav-left-link" id="menu-8"><a href="#"><span class="icon-user-check"></span> Usuarios <span class="icon-circle-left pull-xs-right" id="icono-circ-5"></span></a></li>
+                  <div class="sub-menu-nav-left" id="sub-menu-8">
+                  <ul>
+                  <li class="sub-left-link"><a href="">Ventas</a></li>
+                  <li class="sub-left-link"><a href="">Compras</a></li>
+                  <li class="sub-left-link"><a href="">Cotizar</a></li>
+
+                  </ul>
+                 </div>
+         <li class="nav-left-link" id="menu-9"><a href="#"><span class="icon-user-check"></span> Estadisticas <span class="icon-circle-left pull-xs-right" id="icono-circ-5"></span></a></li>
+                  <div class="sub-menu-nav-left" id="sub-menu-9">
+                  <ul>
+                  <li class="sub-left-link"><a href="">Ventas</a></li>
+                  <li class="sub-left-link"><a href="">Compras</a></li>
+                  <li class="sub-left-link"><a href="">Cotizar</a></li>
+
+                  </ul>
+                 </div>
+         <li class="nav-left-link" id="menu-10"><a href="#"><span class="icon-user-check"></span> BackUp <span class="icon-circle-left pull-xs-right" id="icono-circ-5"></span></a></li>
+                  <div class="sub-menu-nav-left" id="sub-menu-10">
+                  <ul>
+                  <li class="sub-left-link"><a href="">Ventas</a></li>
+                  <li class="sub-left-link"><a href="">Compras</a></li>
+                  <li class="sub-left-link"><a href="">Cotizar</a></li>
+
+                  </ul>
+                 </div>
        </ul>
    </div>
    <div class="panel-left" >
       <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-                <div class="month-desc pull-xs-left">
-                    <h2>Resumen diciembre</h2>
-                    
-                </div>
-                <div class="calendar-desc pull-xs-right hidden-sm-down ">
-                    <h6 class="text-muted text-xs-center">Lunes 23 de diciembre del 2019</h6>
-                </div>
-                
-            </div>
+            <nav class="breadcrumb">
+             <div class="col-md-12">
+                  <a class="breadcrumb-item" href="#"><span class="icon-home3"></span> Home</a>
+                  <span class="breadcrumb-item active">Panel</span>
+             </div>
+            </nav>
         </div>
-         <div class="row" id="cont-cards">
-             <div class="col-xs-6 offset-sm-1 col-sm-5 offset-md-0 col-md-6 col-lg-4 col-xl-3">
-                 <div class="panel-card">
-                    <div class="head-card">
-                      <span class="icon-stats-dots"></span>
-                      <span class="coin-card">S/0.00</span> 
-                    </div>
-                     <div class="desc-card">
-                         <span class="desc-card-letter">Ventas</span>
-                     </div>
-                 </div>
-             </div>
-             <div class="col-xs-6 col-sm-5 offset-md-0 col-md-6 col-lg-4 col-xl-3">
-                 <div class="panel-card">
-                    <div class="head-card">
-                      <span class="icon-cart icon-cart2"></span>
-                      <span class="coin-card">S/0.00</span> 
-                    </div>
-                     <div class="desc-card">
-                         <span class="desc-card-letter">Compras</span>
-                     </div>
-                 </div>
-             </div>
-             <div class="col-xs-6 offset-sm-1 col-sm-5 offset-md-0 col-md-6 col-lg-4 col-xl-3">
-                 <div class="panel-card">
-                    <div class="head-card">
-                      <span class="icon-truck"></span> 
-                      <span class="coin-card">S/0.00</span> 
-                    </div>
-                     <div class="desc-card">
-                         <span class="desc-card-letter">Productos</span>
-                     </div>
-                 </div>
-             </div>
-             <div class="col-xs-6 col-sm-5 offset-md-0 col-md-6 col-lg-4 col-xl-3">
-                 <div class="panel-card">
-                    <div class="head-card">
-                      <span class="icon-users"></span> 
-                      <span class="coin-card">S/0.00</span> 
-                    </div>
-                     <div class="desc-card">
-                         <span class="desc-card-letter">Pagos</span>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <div class="row">
-             
-         </div>
-          
+        <div class="row">
+           <div class="col-md-2">
+           <div class="cont-icon-descp">
+               <div class="cont-shotcouts">
+              <span class="icon-coin-dollar icono-ventas-main"></span>  
+               </div>
+               <div class="name-descp">
+                   <h4 class="text-xs-center">Ventas</h4>
+               </div>
+           </div>
+           </div>
+            <div class="col-md-2">
+           <div class="cont-icon-descp">
+               <div class="cont-shotcouts">
+              <span class="icon-coin-dollar icono-ventas-main"></span>  
+               </div>
+               <div class="name-descp">
+                   <h4 class="text-xs-center">Compras</h4>
+               </div>
+           </div>
+           </div>
+            <div class="col-md-2">
+           <div class="cont-icon-descp">
+               <div class="cont-shotcouts">
+              <span class="icon-coin-dollar icono-ventas-main"></span>  
+               </div>
+               <div class="name-descp">
+                   <h4 class="text-xs-center">Clientes</h4>
+               </div>
+           </div>
+           </div>
+            <div class="col-md-2">
+           <div class="cont-icon-descp">
+               <div class="cont-shotcouts">
+              <span class="icon-coin-dollar icono-ventas-main"></span>  
+               </div>
+               <div class="name-descp">
+                   <h4 class="text-xs-center">Proveedores</h4>
+               </div>
+           </div>
+           </div>
+        </div>
       </div>
-       
    </div>
    <script src="js/jquery-3.1.0.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
     <script src="js/codigosvarios.js"></script>
 </body>
 </html>
+             
+          
+       
 
 
 
